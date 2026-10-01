@@ -1,0 +1,14 @@
+TruthSet	Level	Sample	Ranking(best->worst)	Spread
+TS1_consensus	3plus	normal	BCF(0.9218) > Varscan(0.9215) > Deepvariant(0.9032) > Freebayes(0.8695) > Gatk(0.8458)	0.0760
+TS1_consensus	4plus	normal	Varscan(0.9128) > BCF(0.9075) > Freebayes(0.8942) > Deepvariant(0.8773) > Gatk(0.8268)	0.0860
+TS1_consensus	5tools	normal	Freebayes(0.9220) > Varscan(0.8528) > BCF(0.8165) > Deepvariant(0.7855) > Gatk(0.7335)	0.1885
+TS2_leave_one_out	k2	normal	Deepvariant(0.8842) > BCF(0.8779) > Varscan(0.8748) > Gatk(0.8307) > Freebayes(0.8101)	0.0741
+TS2_leave_one_out	k3	normal	BCF(0.8947) > Varscan(0.8940) > Deepvariant(0.8702) > Freebayes(0.8590) > Gatk(0.8176)	0.0771
+TS2_leave_one_out	k4	normal	Freebayes(0.8581) > Varscan(0.8273) > BCF(0.8120) > Deepvariant(0.7817) > Gatk(0.7312)	0.1269
+TS1_consensus	3plus	abnormal	BCF(0.9221) > Varscan(0.9201) > Deepvariant(0.9031) > Freebayes(0.8702) > Gatk(0.8453)	0.0769
+TS1_consensus	4plus	abnormal	Varscan(0.9109) > BCF(0.9086) > Freebayes(0.8935) > Deepvariant(0.8783) > Gatk(0.8269)	0.0840
+TS1_consensus	5tools	abnormal	Freebayes(0.9188) > Varscan(0.8532) > BCF(0.8173) > Deepvariant(0.7866) > Gatk(0.7336)	0.1852
+TS2_leave_one_out	k2	abnormal	Deepvariant(0.8839) > BCF(0.8780) > Varscan(0.8738) > Gatk(0.8303) > Freebayes(0.8114)	0.0725
+TS2_leave_one_out	k3	abnormal	BCF(0.8957) > Varscan(0.8926) > Deepvariant(0.8708) > Freebayes(0.8593) > Gatk(0.8177)	0.0780
+TS2_leave_one_out	k4	abnormal	Freebayes(0.8563) > Varscan(0.8263) > BCF(0.8129) > Deepvariant(0.7826) > Gatk(0.7313)	0.1250
+TS4_simulation	known_truth	simulated	Freebayes(0.9986) > BCF(0.9982) > Gatk(0.9981) > Deepvariant(0.9963) > Varscan(0.9874)	0.0112

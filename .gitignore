@@ -1,0 +1,12 @@
+*.vcf.gz
+*.vcf.gz.tbi
+*.csi
+*.bam
+*.bai
+*.fastq.gz
+*.fq.gz
+*.fa
+*.fasta
+*.sdf/
+tmp/
+__pycache__/

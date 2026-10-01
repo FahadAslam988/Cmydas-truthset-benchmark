@@ -1,0 +1,11 @@
+Caller	Sample	Raw_records	Source
+BCFtools	CH-NORMS1	14327393	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF
+BCFtools	Ab-NormS2	14380356	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF
+DeepVariant	CH-NORMS1	17425142	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF
+DeepVariant	Ab-NormS2	17536252	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF
+FreeBayes	CH-NORMS1	13910723	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF
+FreeBayes	Ab-NormS2	13935733	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF
+GATK	CH-NORMS1	14632668	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF
+GATK	Ab-NormS2	14671962	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF
+VarScan	CH-NORMS1	13762684	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF
+VarScan	Ab-NormS2	13842258	raw caller VCF (latest_tools_varains_with_reference_file); GATK = genotyped VCF, not gVCF

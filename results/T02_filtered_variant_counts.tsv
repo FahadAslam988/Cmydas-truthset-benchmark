@@ -1,0 +1,11 @@
+Tool	Sample	NewCount	Target	Match
+BCF	abnormal	14285440	14285440	YES
+BCF	normal	14220913	14220913	YES
+Deepvariant	abnormal	13767503	13767503	YES
+Deepvariant	normal	13705037	13705037	YES
+Freebayes	abnormal	13332001	13332001	YES
+Freebayes	normal	13239802	13239802	YES
+Gatk	abnormal	14522966	14522966	YES
+Gatk	normal	14467559	14467559	YES
+Varscan	abnormal	13833482	13833482	YES
+Varscan	normal	13753976	13753976	YES

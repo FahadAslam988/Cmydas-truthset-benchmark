@@ -1,0 +1,11 @@
+Callset	Normalized_SNPs	Remaining_Multiallelic
+BCF_abnormal	12747798	0
+BCF_normal	12699560	0
+Deepvariant_abnormal	12124170	0
+Deepvariant_normal	12079333	0
+Freebayes_abnormal	11320024	0
+Freebayes_normal	11267250	0
+Gatk_abnormal	12685461	0
+Gatk_normal	12651110	0
+Varscan_abnormal	12288474	0
+Varscan_normal	12228987	0

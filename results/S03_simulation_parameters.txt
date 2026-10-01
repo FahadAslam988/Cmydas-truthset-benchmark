@@ -1,0 +1,98 @@
+# STAGE 0 calibration — measured from real BAMs 2026-07-13
+# sampled contigs: NC_057849.1 NC_057850.1 NC_057851.1 NC_057852.1 NC_051246.2  window: 10000000 bp
+#
+# Per-sample raw measurements (samtools bedcov depth; samtools stats):
+NORMAL      depth=68.0  insert_mean_raw=618.7  insert_sd_raw=1053.8  readlen=149
+ABNORMAL    depth=71.6  insert_mean_raw=622.0  insert_sd_raw=1036.3  readlen=149
+#
+# DEPTH_DECISION: normal=68.0x abnormal=71.6x -> SIMILAR (<20% apart) -> ONE simulation
+#
+# Robust insert size (CH-NORMS1, proper pairs -f2, 50-1000bp window, n=2,078,336):
+#   raw mean/sd are inflated by discordant pairs; use the robust values below for ART.
+INSERT_MEAN=462
+INSERT_SD=102
+INSERT_MODE=421
+#
+# ==== FINAL PARAMETERS FOR SIMULATION (ART / simuG) ====
+SIM_READLEN=151      # PE (measured 149; use 151 to match NovaSeq 2x151 design)
+SIM_COVERAGE=70      # target diploid depth (mean of 68x/72x)
+SIM_INSERT_MEAN=462  # ART -m
+SIM_INSERT_SD=102    # ART -s
+# STAGE0_DONE 2026-07-13
+# ---- SNV density (measured from real per-sample PASS SNVs) ----
+DENSITY_DV_normal=12079333   # /2.134Gb = 1 per ~177 bp
+DENSITY_GATK_normal=12651110 # /2.134Gb = 1 per ~169 bp
+SNV_DENSITY_PER_BP=0.0058    # ~1 SNV per 172 bp (mean of DV & GATK); SNP:indel target 8:1
+# ---- STAGE 1 subset ----
+SUBSET_FA=${SIM_DIR}/outputs/01_mutated_genome/subset.fa
+SUBSET_BED=${SIM_DIR}/outputs/01_mutated_genome/subset.bed
+SUBSET_BP=211674013
+SUBSET_CONTIGS=72
+SUBSET_PCT_OF_GENOME=9.9
+# STAGE1_DONE 2026-07-13 21:10:23
+# ---- STAGE 2 planned variant counts (density x subset_bp) ----
+N_SNP=1231307     # RECAL 5-tool consensus both samples (was 1226000)
+N_INDEL=153913   # RECAL 5-tool consensus (8:1) (was 153250)
+# ratio hom:het split target ~50:50 (diploid genotyped truth)
+# ---- SNP Ti/Tv + indel ratio (measured / standard) ----
+SIM_TITV=2.03           # measured from real DV normal SNVs (ts 8.10M / tv 3.98M)
+SIM_INS_DEL_RATIO=1.0   # balanced ins:del (simuG default; realistic)
+# ---- real het:hom ratio (measured from DV normal PASS SNVs; PSC nHets/nNonRefHom) ----
+REAL_HET=7048764
+REAL_HOMALT=5026554
+HET_FRACTION=0.607   # RECAL 5-tool consensus both samples (was 0.584)
+HOM_FRACTION=0.416   # hom 1/1 (on BOTH haplotypes)
+# ---- STAGE 2b truth set (bcftools consensus; replaces simuG) ----
+TRUTH_VCF=${SIM_DIR}/outputs/01_mutated_genome/truth.vcf.gz
+CALLABLE_BED=${SIM_DIR}/outputs/01_mutated_genome/callable.bed
+TRUTH_TOTAL=1374559
+TRUTH_SNP=1221917
+TRUTH_INDEL=152642
+TRUTH_TITV=2.03
+TRUTH_HET=713462
+TRUTH_HOM=508455
+HAP1_GENOME=${SIM_DIR}/outputs/01_mutated_genome/hap1.simseq.genome.fa
+HAP2_GENOME=${SIM_DIR}/outputs/01_mutated_genome/hap2.simseq.genome.fa
+# STAGE2b_DONE 2026-07-14 09:50:26
+# ---- STAGE 3a custom ART error profile ----
+ART_PROFILE_R1=${SIM_DIR}/outputs/02_simulated_reads/error_profile/cmydas_novaseqR1.txt
+ART_PROFILE_R2=${SIM_DIR}/outputs/02_simulated_reads/error_profile/cmydas_novaseqR2.txt
+ART_PROFILE_READS_R1=2967414
+ART_PROFILE_READS_R2=2966304
+# STAGE3a_DONE 2026-07-14 13:35:07
+# ==== STAGE 0c RECALIBRATION (5-tool >=3 consensus, normal+abnormal) 2026-07-14 14:40:32 ====
+# supersedes the earlier DV+GATK/normal-only values above.
+RECAL_TITV=2.03
+RECAL_HETF=0.607
+RECAL_DENSITY=0.005817
+RECAL_N_SNP=1231307
+RECAL_N_INDEL=153913
+# STAGE0c_DONE 2026-07-14 14:40:32
+# ---- STAGE 2b truth set (bcftools consensus; replaces simuG) ----
+TRUTH_VCF=${SIM_DIR}/outputs/01_mutated_genome/truth.vcf.gz
+CALLABLE_BED=${SIM_DIR}/outputs/01_mutated_genome/callable.bed
+TRUTH_TOTAL=1380455
+TRUTH_SNP=1227026
+TRUTH_INDEL=153429
+TRUTH_TITV=2.03
+TRUTH_HET=745098
+TRUTH_HOM=481928
+HAP1_GENOME=${SIM_DIR}/outputs/01_mutated_genome/hap1.simseq.genome.fa
+HAP2_GENOME=${SIM_DIR}/outputs/01_mutated_genome/hap2.simseq.genome.fa
+# STAGE2b_DONE 2026-07-14 15:01:09
+# ---- STAGE 3b ART reads ----
+SIM_R1=${SIM_DIR}/outputs/02_simulated_reads/sim_R1.fq.gz
+SIM_R2=${SIM_DIR}/outputs/02_simulated_reads/sim_R2.fq.gz
+SIM_READ_PAIRS=48861422
+SIM_EFF_COVERAGE=69.7
+# STAGE3b_DONE 2026-07-14 15:24:40
+# ---- STAGE 4 alignment ----
+SIM_BAM=${SIM_DIR}/outputs/03_aligned/sim.dedup.bam
+SIM_MAPPED=97722857
+SIM_DUPLICATES=34093
+# STAGE4_DONE 2026-07-14 17:18:53
+# ---- STAGE 5a DeepVariant ----
+DV_STOCK_VCF=${SIM_DIR}/outputs/04_calls/StockDV_sim.vcf.gz
+# STAGE5a_DONE 2026-07-14 18:42:52
+# STAGE5b_DONE 2026-07-15 03:18:36
+# STAGE5b_DONE 2026-07-15 10:27:29

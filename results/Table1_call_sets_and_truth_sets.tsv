@@ -1,0 +1,13 @@
+Caller	CH-NORMS1 raw variants	CH-NORMS1 filtered SNPs	CH-NORMS1 SNPs scored	Ab-NormS2 raw variants	Ab-NormS2 filtered SNPs	Ab-NormS2 SNPs scored
+BCFtools	14,327,393	12,678,209	12,699,560	14,380,356	12,726,145	12,747,798
+DeepVariant	17,425,142	12,058,893	12,079,333	17,536,252	12,103,451	12,124,170
+FreeBayes	13,910,723	11,247,911	11,267,250	13,935,733	11,300,566	11,320,024
+GATK	14,632,668	12,629,773	12,651,110	14,671,962	12,663,916	12,685,461
+VarScan	13,762,684	12,228,987	12,228,987	13,842,258	12,288,474	12,288,474
+
+Truth set	CH-NORMS1 SNP positions	Ab-NormS2 SNP positions
+Consensus, ≥3 callers	12,397,727	12,440,269
+Consensus, ≥4 callers	11,879,029	11,922,106
+Consensus, all 5 callers	10,275,542	10,317,794
+Leave-one-out (k = 2, 3, 4)	one per tested caller; see Supplementary Table S1	
+Simulation (known truth, 72 contigs, 210.8 Mb callable)	1,227,026 SNVs (+153,429 indels)	
