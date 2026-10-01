@@ -9,12 +9,15 @@ that differ in how independent they are of the callers themselves:
 
 | Truth set | How it is built | Independent of the callers? |
 |---|---|---|
-| **TS1 consensus** | SNPs called by exactly 3, ≥3, exactly 4, ≥4 or all 5 callers (every site, whichever callers reported it) | no: the tested caller votes in its own truth |
+| **TS1 consensus** | SNPs called by ≥3, ≥4 or all 5 callers (every site, whichever callers reported it); sites called by exactly 3 or exactly 4 callers are analysed as disputed-site strata, not as truth sets | no: the tested caller votes in its own truth |
 | **TS2 leave-one-out** | for each tested caller, SNPs called by ≥k (k = 2, 3, 4) of the **other four** callers | partly: no self-vote, but still caller-derived |
-| **TS4 simulation** | variants planted in the reference at a density and spectrum calibrated from the real data; reads simulated with an error profile learned from the real reads | yes: the answer is known by construction |
+| **TS3 simulation** | variants planted in the reference at a density and spectrum calibrated from the real data; reads simulated with an error profile learned from the real reads | yes: the answer is known by construction |
 
 All truth sets are scored with the **same** method (hap.py 0.3.12, vcfeval engine, allele-level matching), so
 differences in caller ranking between truth sets come from the truth sets alone.
+
+**Naming note:** folder, script and table names use the internal label `TS4` for the simulation (an earlier assembly-based
+truth set, labelled TS3 during the project, was excluded from the paper). `TS4` in file names = **TS3** in the paper.
 
 ## Main result
 
@@ -29,6 +32,9 @@ SNP F1, CH-NORMS1 (Ab-NormS2 within 0.001). Full tables: `results/`.
 | Leave-one-out k=3 | VarScan > BCFtools > DeepVariant > GATK > FreeBayes | 0.052 |
 | Leave-one-out k=4 | FreeBayes > DeepVariant > VarScan > GATK > BCFtools | 0.017 |
 | Simulation (known truth) | FreeBayes > BCFtools > GATK > VarScan > DeepVariant | 0.001 |
+
+Not separable (95% CI of the F1 difference includes 0): FreeBayes vs DeepVariant at leave-one-out k = 4, and GATK vs
+VarScan in the simulation (paired block bootstrap, 1,000 replicates; `results/bootstrap_pairwise_F1_diff.tsv`).
 
 ---
 
@@ -60,7 +66,7 @@ docker pull jmcdani20/hap.py:v0.3.12
 | 1 | `01_preprocessing/` | fastp trimming; BWA-MEM alignment; read groups; MarkDuplicates |
 | 2 | `02_variant_calling/` | the five callers |
 | 3 | `03_filter_normalise/` | common filter (PASS, alt reads > 3, VAF > 0.02); `bcftools norm -m -any`; SNPs only |
-| 4 | `04_truth_sets/` | TS1 consensus, TS2 leave-one-out, TS4 simulation (build + calls on simulated reads) |
+| 4 | `04_truth_sets/` | TS1 consensus, TS2 leave-one-out, TS3 simulation (folder `TS4_simulation/`; build + calls on simulated reads) |
 | 5 | `05_harmonised_benchmark/` | scores every caller against every truth set with identical hap.py settings; collects one table |
 | 6 | `06_figures/` | figures of the paper |
 

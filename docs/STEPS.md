@@ -38,7 +38,7 @@ For each tested caller: `bcftools isec -n +k` over the **other four** callers, m
 (`concat | sort | norm -d exact`); k = 2 (`01_build_loo_truth_k2.sh`), k = 3 and 4 (`02_build_and_score_loo_k3_k4.sh`).
 Scored with hap.py (`03_score_loo_k2_happy.sh`, and within `02_...k3_k4.sh`) using the harmonised settings.
 
-### TS4 simulation (`TS4_simulation/`)
+### TS3 simulation (folder `TS4_simulation/`; `TS4` in file names = TS3 in the paper)
 | Script | Does |
 |---|---|
 | `s00_calibrate_from_consensus.sh` | density, Ti/Tv and het:hom from SNPs called by ≥3 of 5 callers in both samples |
@@ -60,7 +60,7 @@ One scoring method for every truth set: **hap.py 0.3.12, `--engine=vcfeval` (RTG
 | `s01_TS1_build_consensus_truth.sh` | consensus sites → truth VCFs (≥3, ≥4, all 5 from `sites.txt`; exactly 3 and exactly 4 by subtraction); every count checked |
 | `s02_TS1_happy_consensus.sh` | 5 callers × 5 levels × 2 samples = 50 runs |
 | `s03_TS4_happy_simulation_allele.sh` | 5 callers on the simulation |
-| `s04_collect_results.sh` | `Paper1_all_truthsets_SNP_metrics.tsv` (TS1 + TS2 + TS4) and `Paper1_ranks_by_truthset.tsv` |
+| `s04_collect_results.sh` | `Paper1_all_truthsets_SNP_metrics.tsv` (TS1 + TS2 + TS3; simulation rows labelled `TS4_simulation`) and `Paper1_ranks_by_truthset.tsv` |
 | `run_all.sh` | steps 1 to 4 |
 | `s05_TS4_multicaller_consensus.sh` | multi-caller consensus (≥2, ≥3, ≥4, all 5) on the simulation vs single callers |
 | `s07_indel_robustness.sh` | the same truth-set comparison for indels (supplementary) |
