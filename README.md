@@ -44,7 +44,7 @@ VarScan in the simulation (paired block bootstrap, 1,000 replicates; `results/bo
 |---|---|
 | Raw reads (2 individuals, Illumina NovaSeq 6000, 2 × 151 bp) | NCBI SRA BioProject **PRJNA______** (to be added) |
 | Reference genome rCheMyd1.pri.v2 | NCBI RefSeq **GCF_015237465.2** |
-| Call sets, truth sets, hap.py outputs | Zenodo **10.5281/zenodo.______** (to be added) |
+| Call sets, truth sets, hap.py outputs | Zenodo [10.5281/zenodo.23088583](https://doi.org/10.5281/zenodo.23088583) (restricted during peer review, open on publication) |
 
 ## Requirements
 
@@ -83,7 +83,7 @@ docker pull jmcdani20/hap.py:v0.3.12
 ## Citation
 
 Aslam, F. et al. Truth-set construction changes variant-caller rankings in a non-model vertebrate, the green sea
-turtle (*Chelonia mydas*). (in preparation). Code archive: Zenodo DOI to be added.
+turtle (*Chelonia mydas*). (in preparation). Data and code archive (v1.0.0): https://doi.org/10.5281/zenodo.23088583
 
 ## License
 
