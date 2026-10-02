@@ -42,7 +42,7 @@ VarScan in the simulation (paired block bootstrap, 1,000 replicates; `results/bo
 
 | Data | Source |
 |---|---|
-| Raw reads (2 individuals, Illumina NovaSeq 6000, 2 × 151 bp) | NCBI SRA BioProject **PRJNA______** (to be added) |
+| Raw reads (2 individuals, Illumina NovaSeq 6000, 2 × 151 bp) | NCBI SRA BioProject **PRJNA1312993** (runs SRR35200280 = CH-NORMS1, SRR35200279 = Ab-NormS2) |
 | Reference genome rCheMyd1.pri.v2 | NCBI RefSeq **GCF_015237465.2** |
 | Call sets, truth sets, hap.py outputs | Zenodo [10.5281/zenodo.23088583](https://doi.org/10.5281/zenodo.23088583) (restricted during peer review, open on publication) |
 
